@@ -1,0 +1,20 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+    Layout = "_Layout"; // or set it as null if you don't have a layout
+}
+
+<h4>Success</h4>
+
+<p>You will be redirected in 5 seconds...</p>
+
+<script type="text/javascript">
+    // Wait for 5 seconds (5000 milliseconds) and then redirect
+    setTimeout(function () {
+        window.location.href = '@Url.Action("Index", "Home")'; // Replace with your desired action and controller
+    }, 5000);  // 5000 ms = 5 seconds
+</script>
