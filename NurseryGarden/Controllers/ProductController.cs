@@ -16,5 +16,12 @@ namespace NurseryGarden.Controllers
             ProductDAO productsDAO = new ProductDAO();
             return View(productsDAO.GetAllProductToList());
         }
+
+        public IActionResult AddProductToBasket()
+        {
+
+            return View();
+        }
+
     }
 }
