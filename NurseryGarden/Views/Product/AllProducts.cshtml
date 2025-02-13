@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.ActionLink("Show", "Show", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("ShowProduct", "ShowProduct", new { id=item.Id }) |
                 @Html.ActionLink("AddtoBasket", "AddtoBasket", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("AddtoFavorites", "AddtoFavorites", new { /* id=item.PrimaryKey */ })
             </td>

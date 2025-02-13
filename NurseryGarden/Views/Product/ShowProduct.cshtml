@@ -1,0 +1,32 @@
+﻿@model NurseryGarden.Models.ProductModel
+
+<h4>ProductModel</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="card" style="width: 18rem;">
+
+            <img src="/images/sekwoja.jpg" class="card-img-top" alt="Product Image">
+
+            <div class="card-body">
+
+                <h5 class="card-title" id="cardTitle">@Model.ProductName</h5>
+
+
+                <p class="card-text">@Model.Description</p>
+
+
+                <p class="card-text"><strong>Price: </strong>@Model.Price</p>
+
+
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AllProducts">Back to List</a>
+</div>

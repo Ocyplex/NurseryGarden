@@ -18,7 +18,10 @@ namespace NurseryGarden.Controllers
 
 		public IActionResult ShowDetails(UserModel userModel)
 		{
-			UserDAO userDAO = new UserDAO();
+
+            return View(userModel);
+			/*
+            UserDAO userDAO = new UserDAO();
 			if(userDAO.CheckIfNotUsed(userModel))
 			{
                 return View(userModel);
@@ -28,21 +31,23 @@ namespace NurseryGarden.Controllers
 				ViewBag.Address = "Address is already used";
 				return View("Create");
 			}
-
+			*/
             
 		}
 
 		public IActionResult AcceptCreate(UserModel userModel)
 		{
 			UserDAO userDAO = new UserDAO();
-			if (userDAO.InsertIntoDB(userModel))
+			if (userDAO.EmailIsUsed(userModel))
 			{
-				return View("SuccessCreated");
-			}
+				ViewBag.Address = userModel.Email + " is already used";
+				return View("Create");
+            }
 			else
 			{
-				return View("Index");
-			}
+				userDAO.InsertIntoDB(userModel);
+                return View("SuccessCreated");
+            }
 		}
 
 		public IActionResult SuccessCreated()

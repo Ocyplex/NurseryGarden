@@ -14,7 +14,7 @@ namespace NurseryGarden.Services
         public bool InsertIntoDB(UserModel userModel)
         {
 
-                string sqlStatement = "INSERT INTO dbo.RUserTable VALUES (@USERNAME,@EMAIL,@PASSWORD)";
+                string sqlStatement = "INSERT INTO dbo.RUserTable (USERNAME,EMAIL,PASSWORD) VALUES (@USERNAME,@EMAIL,@PASSWORD)";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -39,14 +39,11 @@ namespace NurseryGarden.Services
                                 }
                             }
                         }
-
-
                     }
                 }
-
         }
 
-        public bool CheckIfNotUsed(UserModel userModel)
+        public bool EmailIsUsed(UserModel userModel)
         {
             string sqlStatement = "SELECT COUNT(*) FROM dbo.RUserTable WHERE EMAIL = @EMAIL";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -61,11 +58,11 @@ namespace NurseryGarden.Services
                             int emailCount = (int)cmd.ExecuteScalar();
                             if (emailCount > 0)
                             {
-                                return false;
+                                return true;
                             }
                             else
                             { 
-                                return true;
+                                return false;
                             }
                         }
 

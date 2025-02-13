@@ -6,6 +6,7 @@ namespace NurseryGarden.Controllers
 {
     public class ProductController : Controller
     {
+        ProductDAO productsDAO = new ProductDAO();
         public IActionResult Index()
         {
             return View();
@@ -13,7 +14,7 @@ namespace NurseryGarden.Controllers
 
         public IActionResult AllProducts()
         {
-            ProductDAO productsDAO = new ProductDAO();
+            
             return View(productsDAO.GetAllProductToList());
         }
 
@@ -22,6 +23,14 @@ namespace NurseryGarden.Controllers
 
             return View();
         }
+
+        public IActionResult ShowProduct(int id)
+        { 
+            var product = productsDAO.ShowProductByID(id);
+            return View(product); 
+        }
+
+      
 
     }
 }

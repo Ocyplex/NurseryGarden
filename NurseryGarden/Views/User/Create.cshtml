@@ -4,7 +4,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ShowDetails">
+        <form asp-action="AcceptCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
@@ -12,8 +12,7 @@
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <p>@ViewBag.Address</p>
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label"></label> <p>@ViewBag.Address</p>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
